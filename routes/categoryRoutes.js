@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const router = express.Router();
-const { getCategories, createCategory } = require('../controllers/categoryController');
+const { getCategories, createMultipleCategories } = require('../controllers/categoryController');
 
-router.route('/')
-  .get(getCategories)
-  .post(createCategory);
+router.get('/',  getCategories);
+router.post('/bulk', createMultipleCategories);
+
 
 module.exports = router;
